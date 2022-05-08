@@ -16,7 +16,7 @@
 		const appendStream = new WritableStream({
 		  write(chunk) {
 			lineBuffer += chunk;
-			var lines = lineBuffer.split('n');				
+			var lines = lineBuffer.split('\n');				
 			while (lines.length > 1) {
 			   var message=lines.shift();
 			   console.log(message);
