@@ -12,11 +12,12 @@
 	var lineBuffer = '';
 	async function getReader() {
 		var port = await navigator.serial.requestPort({});
-		await port.open({ baudRate: 9600 });
+		await port.open({ baudRate: 115200 });
 		const appendStream = new WritableStream({
+		 // write(chunk) {
 		  write(chunk) {
 			lineBuffer += chunk;
-			var lines = lineBuffer.split('n');				
+			var lines = lineBuffer.split('\n');				
 			while (lines.length > 1) {
 			   var message=lines.shift();
 			   console.log(message);
